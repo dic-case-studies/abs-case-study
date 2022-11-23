@@ -15,7 +15,7 @@ else ifeq ($(processor),$(filter $(processor),i386 x86_64))
     ARCH_CFLAGS += -march=native -D amd64 
 endif
 
-CXXFLAGS=-std=c++14 -Wall -Wextra -pedantic -I include -O3 -DGOLDEN
+CXXFLAGS=-std=c++14 -Wall -Wextra -pedantic -I include -O3 -DGOLDEN -DSSE -DAVX -DASSERT
 DEBUGFLAGS=-fsanitize=address -g
 
 LIBS= -lcasa_casa -lcasa_meas -lcasa_measures
@@ -25,7 +25,7 @@ CXX=g++
 all: dir build/abs
 
 build/%: src/%.cpp
-	$(CXX) -o $@ $< $(CXXFLAGS) $(OMPFLAGS) $(LIBS) $(ARCH_CFLAGS) $(EXTRA_FLAGS) 
+	$(CXX) -o $@ $< $(CXXFLAGS) $(OMPFLAGS) $(LIBS) $(ARCH_CFLAGS) $(EXTRA_FLAGS)
 
 clean:
 	rm -rf build/* *app
@@ -33,5 +33,5 @@ clean:
 dir:
 	mkdir -p build
 
-.PHONY: all clean
+.PHONY: all clean dir
 
