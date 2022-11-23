@@ -29,7 +29,6 @@ void abs_sse(std::vector<int> &arr, std::vector<int> &abs_arr) {
   size_t limit = quot * simd_width;
 
   for (size_t i = 0; i < limit; i += simd_width) {
-    // __m128i arr_r = _mm_load_si128(_mm_set1_epi32(arr.data()));
     const __m128i temp_arr =
         _mm_set_epi32(arr[i + 3], arr[i + 2], arr[i + 1], arr[i]);
     __m128i arr_r = _mm_abs_epi32(temp_arr);
@@ -38,6 +37,10 @@ void abs_sse(std::vector<int> &arr, std::vector<int> &abs_arr) {
       abs_arr[i + j] = _mm_cvtsi128_si32(arr_r);
       arr_r = _mm_srli_si128(arr_r, 4);
     }
+  }
+
+  for (size_t i = limit; i < arr.size(); i++) {
+    abs_arr[i] = abs(arr[i]);
   }
 }
 
@@ -57,6 +60,10 @@ void abs_avx(std::vector<int> &arr, std::vector<int> &abs_arr) {
     for (size_t j = 0; j < 8; j++) {
       abs_arr[i + (7 - j)] = _mm256_cvtsi256_si32(arr_r - j);
     }
+  }
+
+  for (size_t i = limit; i < arr.size(); i++) {
+    abs_arr[i] = abs(arr[i]);
   }
 }
 
