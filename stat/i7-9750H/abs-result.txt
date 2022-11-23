@@ -1,0 +1,15 @@
+Seed: 1669185484
+Array dim : 10000
+Elapsed time GOLDEN 2 us
+Seed: 1669185484
+Array dim : 50000
+Elapsed time GOLDEN 11 us
+Seed: 1669185484
+Array dim : 100000
+Elapsed time GOLDEN 40 us
+Seed: 1669185484
+Array dim : 1000000
+Elapsed time GOLDEN 1124 us
+Seed: 1669185484
+Array dim : 10000000
+Elapsed time GOLDEN 6548 us
