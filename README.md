@@ -8,7 +8,10 @@ To run benchmarks:
 # 1. Run make to build project
 make all
 # 2. Run scripts to run benchmarks
-bench.sh <host> <executable-to-run>
+# For x86:
+./scripts/bench.sh <host>
+# For ARM:
+./scripts/benchArm.sh <host>
 ```
 
 -------------
@@ -17,6 +20,12 @@ bench.sh <host> <executable-to-run>
 
 ### i7-9750H
 
-1. MinMax with OpenMp and SIMD
+1. abs function with SSE and AVX
 
 ![Stats](./stat/i7-9750H/abs-performance.png)
+
+### Apple Silicon: M1 Pro
+
+1. abs function with NEON
+
+![Stats](./stat/m1pro/abs-performance.png)
