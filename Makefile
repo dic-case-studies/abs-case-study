@@ -5,7 +5,7 @@ else ifeq ($(UNAME_S),Darwin)
 	OMPFLAGS += -Xpreprocessor -fopenmp -lomp
 endif
 
-CXXFLAGS=-std=c++14 -Wall -Wextra -pedantic -I include -O3 
+CXXFLAGS=-std=c++14 -Wall -Wextra -pedantic -I include -O3
 
 processor := $(shell uname -m)
 ifeq ($(processor),$(filter $(processor),aarch64 arm64))
