@@ -13,19 +13,22 @@
 
 #ifdef arm64
 #include <arm_neon.h>
+#include "sse2neon.h"
 #endif
 
 Timer stop_watch;
 
 #ifdef SSE
-void abs_sse(std::vector<int> &arr, std::vector<int> &abs_arr) {
+void abs_sse(std::vector<int> &arr, std::vector<int> &abs_arr)
+{
   assert(arr.size() < (size_t)INT_MAX);
 
   const int simd_width = 4;
   size_t quot = arr.size() / simd_width;
   size_t limit = quot * simd_width;
 
-  for (size_t i = 0; i < limit; i += simd_width) {
+  for (size_t i = 0; i < limit; i += simd_width)
+  {
     const __m128i temp_arr =
         _mm_load_si128(reinterpret_cast<const __m128i *>(arr.data() + i));
 
@@ -34,21 +37,24 @@ void abs_sse(std::vector<int> &arr, std::vector<int> &abs_arr) {
     _mm_store_si128(reinterpret_cast<__m128i *>(abs_arr.data() + i), arr_r);
   }
 
-  for (size_t i = limit; i < arr.size(); i++) {
+  for (size_t i = limit; i < arr.size(); i++)
+  {
     abs_arr[i] = abs(arr[i]);
   }
 }
 #endif
 
 #ifdef AVX
-void abs_avx(std::vector<int> &arr, std::vector<int> &abs_arr) {
+void abs_avx(std::vector<int> &arr, std::vector<int> &abs_arr)
+{
   assert(arr.size() < (size_t)INT_MAX);
 
   const int simd_width = 8;
   size_t quot = arr.size() / simd_width;
   size_t limit = quot * simd_width;
 
-  for (size_t i = 0; i < limit; i += simd_width) {
+  for (size_t i = 0; i < limit; i += simd_width)
+  {
 
     const __m256i temp_arr =
         _mm256_loadu_si256(reinterpret_cast<const __m256i *>(arr.data() + i));
@@ -58,21 +64,24 @@ void abs_avx(std::vector<int> &arr, std::vector<int> &abs_arr) {
     _mm256_storeu_si256(reinterpret_cast<__m256i *>(abs_arr.data() + i), arr_r);
   }
 
-  for (size_t i = limit; i < arr.size(); i++) {
+  for (size_t i = limit; i < arr.size(); i++)
+  {
     abs_arr[i] = abs(arr[i]);
   }
 }
 #endif
 
 #ifdef NEON
-void abs_neon(std::vector<int> &arr, std::vector<int> &abs_arr) {
+void abs_neon(std::vector<int> &arr, std::vector<int> &abs_arr)
+{
   assert(arr.size() < (size_t)INT_MAX);
 
   const int simd_width = 4;
   size_t quot = arr.size() / simd_width;
   size_t limit = quot * simd_width;
 
-  for (size_t i = 0; i < limit; i += simd_width) {
+  for (size_t i = 0; i < limit; i += simd_width)
+  {
     int32x4_t temp_arr = vld1q_s32(arr.data() + i);
 
     int32x4_t arr_r = vabsq_s32(temp_arr);
@@ -80,15 +89,18 @@ void abs_neon(std::vector<int> &arr, std::vector<int> &abs_arr) {
     vst1q_s32(abs_arr.data() + i, arr_r);
   }
 
-  for (size_t i = limit; i < arr.size(); i++) {
+  for (size_t i = limit; i < arr.size(); i++)
+  {
     abs_arr[i] = abs(arr[i]);
   }
 }
 #endif
 
-int main(int argc, char **argv) {
+int main(int argc, char **argv)
+{
 
-  if (argc < 2) {
+  if (argc < 2)
+  {
     std::cerr << " usage: build/abs <N>" << std::endl;
     return 1;
   }
@@ -103,20 +115,42 @@ int main(int argc, char **argv) {
 
   int offset = -500;
   float range = 1000.0f;
-  for (size_t i = 0; i < N; i++) {
+  for (size_t i = 0; i < N; i++)
+  {
     arr[i] = offset + range * (rand() / (float)RAND_MAX);
   }
 
   std::vector<int> expected(N);
-
 #ifdef GOLDEN
   stop_watch.start_timer();
-  for (size_t i = 0; i < N; i++) {
+  for (size_t i = 0; i < N; i++)
+  {
     expected[i] = abs(arr[i]);
   }
   stop_watch.stop_timer();
   std::cout << "Elapsed time GOLDEN " << stop_watch.time_elapsed() << " us"
             << std::endl;
+#endif
+
+#ifdef OMP
+  std::vector<int> omp_actual(N);
+  stop_watch.start_timer();
+#pragma omp parallel for
+  for (size_t i = 0; i < N; i++)
+  {
+    omp_actual[i] = abs(arr[i]);
+  }
+  stop_watch.stop_timer();
+  std::cout << "Elapsed time OpenMP " << stop_watch.time_elapsed() << " us"
+            << std::endl;
+
+#ifdef ASSERT
+  for (size_t i = 0; i < N; i++)
+  {
+    assert_int(expected[i], omp_actual[i], "OpenMP");
+  }
+  std::cout << "Assertion is successful for OpenMP" << std::endl;
+#endif
 #endif
 
 #ifdef SSE
@@ -128,7 +162,8 @@ int main(int argc, char **argv) {
             << std::endl;
 
 #ifdef ASSERT
-  for (size_t i = 0; i < N; i++) {
+  for (size_t i = 0; i < N; i++)
+  {
     assert_int(expected[i], sse_actual[i], "SSE");
   }
   std::cout << "Assertion is successful for SSE" << std::endl;
@@ -144,7 +179,8 @@ int main(int argc, char **argv) {
             << std::endl;
 
 #ifdef ASSERT
-  for (size_t i = 0; i < N; i++) {
+  for (size_t i = 0; i < N; i++)
+  {
     assert_int(expected[i], avx_actual[i], "AVX");
   }
   std::cout << "Assertion is successful for AVX" << std::endl;
@@ -160,7 +196,8 @@ int main(int argc, char **argv) {
             << std::endl;
 
 #ifdef ASSERT
-  for (size_t i = 0; i < N; i++) {
+  for (size_t i = 0; i < N; i++)
+  {
     assert_int(expected[i], neon_actual[i], "NEON");
   }
   std::cout << "Assertion is successful for NEON" << std::endl;

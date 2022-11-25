@@ -26,12 +26,15 @@ cat stat/$host/$bench-result.txt | awk '                          \
   /Elapsed time GOLDEN/ {                     \
     golden = $(NF-1);                         \
   }                                           \
+  /Elapsed time OpenMP/ {                     \
+    omp = $(NF-1);                         \
+  }                                           \
   /Elapsed time SSE/ {                   \
     sse = $(NF-1);                            \
   }                                           \
   /Elapsed time AVX/ {                   \
     avx = $(NF-1);                            \
-    printf("%s, %s, %s, %s\n", size, golden, sse, avx); \
+    printf("%s, %s, %s, %s, %s\n", size, golden, omp, sse, avx); \
   }                                           \
 ' > stat/$host/$bench-stats.csv
 
@@ -47,6 +50,7 @@ echo "                                            \
   set logscale y;                                        \
                                                          \
   plot \"stat/$host/$bench-stats.csv\" using 1:2 with linespoint title \"Golden\", \
-       \"stat/$host/$bench-stats.csv\" using 1:3 with linespoint title \"SSE\",    \
-       \"stat/$host/$bench-stats.csv\" using 1:4 with linespoint title \"AVX\";    \
+       \"stat/$host/$bench-stats.csv\" using 1:3 with linespoint title \"OpenMP\",    \
+       \"stat/$host/$bench-stats.csv\" using 1:4 with linespoint title \"SSE\",    \
+       \"stat/$host/$bench-stats.csv\" using 1:5 with linespoint title \"AVX\";    \
 " | gnuplot > stat/$host/$bench-performance.png
