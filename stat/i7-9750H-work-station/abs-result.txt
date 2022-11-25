@@ -1,0 +1,24 @@
+Seed: 1669367577
+Array dim : 10000
+Elapsed time AVX 1 us
+Seed: 1669367577
+Array dim : 50000
+Elapsed time AVX 7 us
+Seed: 1669367577
+Array dim : 75001
+Elapsed time AVX 11 us
+Seed: 1669367577
+Array dim : 100000
+Elapsed time AVX 16 us
+Seed: 1669367577
+Array dim : 500001
+Elapsed time AVX 89 us
+Seed: 1669367577
+Array dim : 1000000
+Elapsed time AVX 214 us
+Seed: 1669367577
+Array dim : 10000000
+Elapsed time AVX 5586 us
+Seed: 1669367577
+Array dim : 100000000
+Elapsed time AVX 63435 us
