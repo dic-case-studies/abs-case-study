@@ -1,0 +1,96 @@
+Running abs SSE 10000
+Seed: 1669366517
+Array dim : 10000
+Elapsed time SSE 1 us
+
+ Performance counter stats for 'system wide':
+
+              0.10 Joules power/energy-pkg/                                           
+
+       0.001441002 seconds time elapsed
+
+----------------------------
+Running abs SSE 50000
+Seed: 1669366517
+Array dim : 50000
+Elapsed time SSE 8 us
+
+ Performance counter stats for 'system wide':
+
+              0.10 Joules power/energy-pkg/                                           
+
+       0.002120719 seconds time elapsed
+
+----------------------------
+Running abs SSE 75001
+Seed: 1669366517
+Array dim : 75001
+Elapsed time SSE 12 us
+
+ Performance counter stats for 'system wide':
+
+              0.15 Joules power/energy-pkg/                                           
+
+       0.002502026 seconds time elapsed
+
+----------------------------
+Running abs SSE 100000
+Seed: 1669366517
+Array dim : 100000
+Elapsed time SSE 17 us
+
+ Performance counter stats for 'system wide':
+
+              0.14 Joules power/energy-pkg/                                           
+
+       0.002931548 seconds time elapsed
+
+----------------------------
+Running abs SSE 500001
+Seed: 1669366517
+Array dim : 500001
+Elapsed time SSE 106 us
+
+ Performance counter stats for 'system wide':
+
+              0.37 Joules power/energy-pkg/                                           
+
+       0.010071854 seconds time elapsed
+
+----------------------------
+Running abs SSE 1000000
+Seed: 1669366517
+Array dim : 1000000
+Elapsed time SSE 257 us
+
+ Performance counter stats for 'system wide':
+
+              0.62 Joules power/energy-pkg/                                           
+
+       0.017192849 seconds time elapsed
+
+----------------------------
+Running abs SSE 10000000
+Seed: 1669366517
+Array dim : 10000000
+Elapsed time SSE 5792 us
+
+ Performance counter stats for 'system wide':
+
+              4.95 Joules power/energy-pkg/                                           
+
+       0.148174128 seconds time elapsed
+
+----------------------------
+Running abs SSE 100000000
+Seed: 1669366517
+Array dim : 100000000
+Elapsed time SSE 64257 us
+
+ Performance counter stats for 'system wide':
+
+             52.08 Joules power/energy-pkg/                                           
+
+       1.408096786 seconds time elapsed
+
+----------------------------

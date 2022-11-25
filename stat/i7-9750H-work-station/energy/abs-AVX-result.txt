@@ -1,0 +1,96 @@
+Running abs AVX 10000
+Seed: 1669366519
+Array dim : 10000
+Elapsed time AVX 1 us
+
+ Performance counter stats for 'system wide':
+
+              0.05 Joules power/energy-pkg/                                           
+
+       0.001578591 seconds time elapsed
+
+----------------------------
+Running abs AVX 50000
+Seed: 1669366519
+Array dim : 50000
+Elapsed time AVX 7 us
+
+ Performance counter stats for 'system wide':
+
+              0.10 Joules power/energy-pkg/                                           
+
+       0.002167709 seconds time elapsed
+
+----------------------------
+Running abs AVX 75001
+Seed: 1669366519
+Array dim : 75001
+Elapsed time AVX 11 us
+
+ Performance counter stats for 'system wide':
+
+              0.14 Joules power/energy-pkg/                                           
+
+       0.002734352 seconds time elapsed
+
+----------------------------
+Running abs AVX 100000
+Seed: 1669366519
+Array dim : 100000
+Elapsed time AVX 16 us
+
+ Performance counter stats for 'system wide':
+
+              0.13 Joules power/energy-pkg/                                           
+
+       0.003107938 seconds time elapsed
+
+----------------------------
+Running abs AVX 500001
+Seed: 1669366519
+Array dim : 500001
+Elapsed time AVX 97 us
+
+ Performance counter stats for 'system wide':
+
+              0.39 Joules power/energy-pkg/                                           
+
+       0.010580380 seconds time elapsed
+
+----------------------------
+Running abs AVX 1000000
+Seed: 1669366519
+Array dim : 1000000
+Elapsed time AVX 244 us
+
+ Performance counter stats for 'system wide':
+
+              0.68 Joules power/energy-pkg/                                           
+
+       0.017994580 seconds time elapsed
+
+----------------------------
+Running abs AVX 10000000
+Seed: 1669366519
+Array dim : 10000000
+Elapsed time AVX 5649 us
+
+ Performance counter stats for 'system wide':
+
+              5.01 Joules power/energy-pkg/                                           
+
+       0.147919248 seconds time elapsed
+
+----------------------------
+Running abs AVX 100000000
+Seed: 1669366520
+Array dim : 100000000
+Elapsed time AVX 63704 us
+
+ Performance counter stats for 'system wide':
+
+             52.50 Joules power/energy-pkg/                                           
+
+       1.405052023 seconds time elapsed
+
+----------------------------

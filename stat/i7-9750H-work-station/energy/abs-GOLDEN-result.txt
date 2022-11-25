@@ -1,0 +1,96 @@
+Running abs GOLDEN 10000
+Seed: 1669366515
+Array dim : 10000
+Elapsed time GOLDEN 1 us
+
+ Performance counter stats for 'system wide':
+
+              0.05 Joules power/energy-pkg/                                           
+
+       0.001468202 seconds time elapsed
+
+----------------------------
+Running abs GOLDEN 50000
+Seed: 1669366515
+Array dim : 50000
+Elapsed time GOLDEN 6 us
+
+ Performance counter stats for 'system wide':
+
+              0.10 Joules power/energy-pkg/                                           
+
+       0.002003567 seconds time elapsed
+
+----------------------------
+Running abs GOLDEN 75001
+Seed: 1669366515
+Array dim : 75001
+Elapsed time GOLDEN 11 us
+
+ Performance counter stats for 'system wide':
+
+              0.13 Joules power/energy-pkg/                                           
+
+       0.002431956 seconds time elapsed
+
+----------------------------
+Running abs GOLDEN 100000
+Seed: 1669366515
+Array dim : 100000
+Elapsed time GOLDEN 14 us
+
+ Performance counter stats for 'system wide':
+
+              0.13 Joules power/energy-pkg/                                           
+
+       0.002953064 seconds time elapsed
+
+----------------------------
+Running abs GOLDEN 500001
+Seed: 1669366515
+Array dim : 500001
+Elapsed time GOLDEN 82 us
+
+ Performance counter stats for 'system wide':
+
+              0.33 Joules power/energy-pkg/                                           
+
+       0.009284796 seconds time elapsed
+
+----------------------------
+Running abs GOLDEN 1000000
+Seed: 1669366515
+Array dim : 1000000
+Elapsed time GOLDEN 183 us
+
+ Performance counter stats for 'system wide':
+
+              0.63 Joules power/energy-pkg/                                           
+
+       0.016546047 seconds time elapsed
+
+----------------------------
+Running abs GOLDEN 10000000
+Seed: 1669366515
+Array dim : 10000000
+Elapsed time GOLDEN 5545 us
+
+ Performance counter stats for 'system wide':
+
+              4.92 Joules power/energy-pkg/                                           
+
+       0.142895328 seconds time elapsed
+
+----------------------------
+Running abs GOLDEN 100000000
+Seed: 1669366515
+Array dim : 100000000
+Elapsed time GOLDEN 62369 us
+
+ Performance counter stats for 'system wide':
+
+             50.51 Joules power/energy-pkg/                                           
+
+       1.371711174 seconds time elapsed
+
+----------------------------
