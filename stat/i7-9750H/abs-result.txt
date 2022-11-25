@@ -1,56 +1,56 @@
-Seed: 1669284447
+Seed: 1669368546
 Array dim : 10000
 Elapsed time GOLDEN 1 us
 Elapsed time SSE 2 us
 Assertion is successful for SSE
 Elapsed time AVX 1 us
 Assertion is successful for AVX
-Seed: 1669284447
+Seed: 1669368546
 Array dim : 50000
-Elapsed time GOLDEN 10 us
-Elapsed time SSE 12 us
+Elapsed time GOLDEN 9 us
+Elapsed time SSE 16 us
 Assertion is successful for SSE
-Elapsed time AVX 8 us
+Elapsed time AVX 9 us
 Assertion is successful for AVX
-Seed: 1669284447
+Seed: 1669368546
 Array dim : 75001
 Elapsed time GOLDEN 15 us
-Elapsed time SSE 17 us
+Elapsed time SSE 18 us
 Assertion is successful for SSE
-Elapsed time AVX 14 us
+Elapsed time AVX 15 us
 Assertion is successful for AVX
-Seed: 1669284447
+Seed: 1669368546
 Array dim : 100000
-Elapsed time GOLDEN 54 us
-Elapsed time SSE 40 us
+Elapsed time GOLDEN 22 us
+Elapsed time SSE 31 us
 Assertion is successful for SSE
-Elapsed time AVX 23 us
+Elapsed time AVX 21 us
 Assertion is successful for AVX
-Seed: 1669284447
+Seed: 1669368546
 Array dim : 500001
-Elapsed time GOLDEN 290 us
-Elapsed time SSE 247 us
+Elapsed time GOLDEN 186 us
+Elapsed time SSE 204 us
 Assertion is successful for SSE
-Elapsed time AVX 222 us
+Elapsed time AVX 191 us
 Assertion is successful for AVX
-Seed: 1669284447
+Seed: 1669368546
 Array dim : 1000000
-Elapsed time GOLDEN 3433 us
-Elapsed time SSE 1439 us
+Elapsed time GOLDEN 616 us
+Elapsed time SSE 734 us
 Assertion is successful for SSE
-Elapsed time AVX 965 us
+Elapsed time AVX 687 us
 Assertion is successful for AVX
-Seed: 1669284447
+Seed: 1669368546
 Array dim : 10000000
-Elapsed time GOLDEN 9069 us
-Elapsed time SSE 7335 us
+Elapsed time GOLDEN 8482 us
+Elapsed time SSE 7182 us
 Assertion is successful for SSE
-Elapsed time AVX 7405 us
+Elapsed time AVX 6275 us
 Assertion is successful for AVX
-Seed: 1669284447
+Seed: 1669368547
 Array dim : 100000000
-Elapsed time GOLDEN 52284 us
-Elapsed time SSE 70220 us
+Elapsed time GOLDEN 68427 us
+Elapsed time SSE 94669 us
 Assertion is successful for SSE
-Elapsed time AVX 61100 us
+Elapsed time AVX 79366 us
 Assertion is successful for AVX
