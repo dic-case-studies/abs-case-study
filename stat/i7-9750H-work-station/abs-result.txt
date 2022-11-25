@@ -1,24 +1,56 @@
-Seed: 1669367577
+Seed: 1669368664
 Array dim : 10000
+Elapsed time GOLDEN 1 us
+Elapsed time SSE 1 us
+Assertion is successful for SSE
 Elapsed time AVX 1 us
-Seed: 1669367577
+Assertion is successful for AVX
+Seed: 1669368664
 Array dim : 50000
+Elapsed time GOLDEN 6 us
+Elapsed time SSE 8 us
+Assertion is successful for SSE
 Elapsed time AVX 7 us
-Seed: 1669367577
+Assertion is successful for AVX
+Seed: 1669368664
 Array dim : 75001
+Elapsed time GOLDEN 11 us
+Elapsed time SSE 13 us
+Assertion is successful for SSE
 Elapsed time AVX 11 us
-Seed: 1669367577
+Assertion is successful for AVX
+Seed: 1669368664
 Array dim : 100000
+Elapsed time GOLDEN 16 us
+Elapsed time SSE 18 us
+Assertion is successful for SSE
 Elapsed time AVX 16 us
-Seed: 1669367577
+Assertion is successful for AVX
+Seed: 1669368664
 Array dim : 500001
-Elapsed time AVX 89 us
-Seed: 1669367577
+Elapsed time GOLDEN 75 us
+Elapsed time SSE 100 us
+Assertion is successful for SSE
+Elapsed time AVX 87 us
+Assertion is successful for AVX
+Seed: 1669368664
 Array dim : 1000000
-Elapsed time AVX 214 us
-Seed: 1669367577
+Elapsed time GOLDEN 162 us
+Elapsed time SSE 260 us
+Assertion is successful for SSE
+Elapsed time AVX 253 us
+Assertion is successful for AVX
+Seed: 1669368664
 Array dim : 10000000
-Elapsed time AVX 5586 us
-Seed: 1669367577
+Elapsed time GOLDEN 5522 us
+Elapsed time SSE 5704 us
+Assertion is successful for SSE
+Elapsed time AVX 5629 us
+Assertion is successful for AVX
+Seed: 1669368665
 Array dim : 100000000
-Elapsed time AVX 63435 us
+Elapsed time GOLDEN 61841 us
+Elapsed time SSE 64217 us
+Assertion is successful for SSE
+Elapsed time AVX 63000 us
+Assertion is successful for AVX
