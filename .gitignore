@@ -2,4 +2,4 @@
 /build
 .vscode
 compile_flags.txt
-scratch.cpp
+scratch*
