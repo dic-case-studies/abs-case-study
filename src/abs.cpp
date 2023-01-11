@@ -3,22 +3,18 @@
 #include <iostream>
 #include <vector>
 
-#ifdef amd64
-#include <emmintrin.h>
+#ifdef __x86_64__
 #include <immintrin.h>
-#include <smmintrin.h>
-#include <tmmintrin.h>
-#include <xmmintrin.h>
 #endif
 
-#ifdef arm64
+#ifdef __aarch64__
 #include <arm_neon.h>
 #include "sse2neon.h"
 #endif
 
 Timer stop_watch;
 
-#ifdef SSE
+#if defined(__SSE4_1__) || defined(SSE2NEON)
 void abs_sse(std::vector<int> &arr, std::vector<int> &abs_arr)
 {
   assert(arr.size() < (size_t)INT_MAX);
@@ -44,7 +40,7 @@ void abs_sse(std::vector<int> &arr, std::vector<int> &abs_arr)
 }
 #endif
 
-#ifdef AVX
+#ifdef __AVX2__
 void abs_avx(std::vector<int> &arr, std::vector<int> &abs_arr)
 {
   assert(arr.size() < (size_t)INT_MAX);
@@ -71,7 +67,7 @@ void abs_avx(std::vector<int> &arr, std::vector<int> &abs_arr)
 }
 #endif
 
-#ifdef NEON
+#ifdef __ARM_NEON__
 void abs_neon(std::vector<int> &arr, std::vector<int> &abs_arr)
 {
   assert(arr.size() < (size_t)INT_MAX);
@@ -120,8 +116,9 @@ int main(int argc, char **argv)
     arr[i] = offset + range * (rand() / (float)RAND_MAX);
   }
 
+  // GOLDEN Approach. Calculates "expected" values
   std::vector<int> expected(N);
-#ifdef GOLDEN
+
   stop_watch.start_timer();
   for (size_t i = 0; i < N; i++)
   {
@@ -130,9 +127,8 @@ int main(int argc, char **argv)
   stop_watch.stop_timer();
   std::cout << "Elapsed time GOLDEN " << stop_watch.time_elapsed() << " us"
             << std::endl;
-#endif
 
-#ifdef OMP
+  // OMP Multithreading approach
   std::vector<int> omp_actual(N);
   stop_watch.start_timer();
 #pragma omp parallel for
@@ -151,9 +147,9 @@ int main(int argc, char **argv)
   }
   std::cout << "Assertion is successful for OpenMP" << std::endl;
 #endif
-#endif
 
-#ifdef SSE
+// SSE or SSE2NEON approach
+#if defined(__SSE4_1__) || defined(SSE2NEON)
   std::vector<int> sse_actual(N);
   stop_watch.start_timer();
   abs_sse(arr, sse_actual);
@@ -170,7 +166,8 @@ int main(int argc, char **argv)
 #endif
 #endif
 
-#ifdef AVX
+// AVX approach
+#ifdef __AVX2__
   std::vector<int> avx_actual(N);
   stop_watch.start_timer();
   abs_avx(arr, avx_actual);
@@ -187,7 +184,8 @@ int main(int argc, char **argv)
 #endif
 #endif
 
-#ifdef NEON
+// ARM NEON approach
+#ifdef __ARM_NEON__
   std::vector<int> neon_actual(N);
   stop_watch.start_timer();
   abs_neon(arr, neon_actual);
