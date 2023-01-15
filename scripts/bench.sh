@@ -1,8 +1,5 @@
 #!/usr/bin/env bash
 
-set -e
-set -x
-
 declare -a SIZE=(10000 50000 75001 100000 500001 1000000 10000000 100000000)
 # declare -a SIZE=(1024 2048 4096 8192)
 # declare -a SIZE=(4)

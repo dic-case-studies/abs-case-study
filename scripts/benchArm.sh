@@ -1,8 +1,5 @@
 #!/usr/bin/env bash
 
-set -e
-set -x
-
 declare -a SIZE=(10000 50000 75001 100000 500001 1000000 10000000 100000000)
 # declare -a SIZE=(1024 2048 4096 8192)
 # declare -a SIZE=(4)
@@ -29,7 +26,7 @@ cat stat/$host/$bench-result.txt | awk '                          \
   /Elapsed time OpenMP/ {                     \
     omp = $(NF-1);                         \
   }                                           \
-  /Elapsed time SSE/ {                   \
+  /Elapsed time SSE2NEON/ {                   \
     sse = $(NF-1);                            \
   }                                           \
   /Elapsed time NEON/ {                   \
@@ -51,6 +48,6 @@ echo "                                            \
                                                          \
   plot \"stat/$host/$bench-stats.csv\" using 1:2 with linespoint title \"Golden\", \
        \"stat/$host/$bench-stats.csv\" using 1:3 with linespoint title \"OMP\",   \
-       \"stat/$host/$bench-stats.csv\" using 1:4 with linespoint title \"SSE\",   \
+       \"stat/$host/$bench-stats.csv\" using 1:4 with linespoint title \"SSE2NEON\",   \
        \"stat/$host/$bench-stats.csv\" using 1:4 with linespoint title \"NEON\";   \
 " | gnuplot > stat/$host/$bench-performance.png
