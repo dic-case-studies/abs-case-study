@@ -12,23 +12,23 @@ declare -a SIZE=(10000 50000 75001 100000 500001 1000000 10000000 100000000)
 # declare -a SIZE=(4096)
 
 host=$1
-mkdir -p stat/$host/energy
+mkdir -p stats/$host/energy
 
 for case in ${CASES[@]}
 do  
   for method in ${METHODS[@]}
   do
-      rm -f build/${case} stat/$host/energy/${case}-${method}-result.txt
+      rm -f build/${case} stats/$host/energy/${case}-${method}-result.txt
 
       make build/${case} OPT="-UGOLDEN -USSE -UAVX -UASSERT -D$method"
       for sz in "${SIZE[@]}"
       do
-      echo "Running ${case} ${method} ${sz}" >> stat/$host/energy/${case}-${method}-result.txt 
-      perf stat -e power/energy-pkg/ ./build/${case} ${sz} &>> stat/$host/energy/${case}-${method}-result.txt 
-      echo "----------------------------" >> stat/$host/energy/${case}-${method}-result.txt 
+      echo "Running ${case} ${method} ${sz}" >> stats/$host/energy/${case}-${method}-result.txt 
+      perf stats -e power/energy-pkg/ ./build/${case} ${sz} &>> stats/$host/energy/${case}-${method}-result.txt 
+      echo "----------------------------" >> stats/$host/energy/${case}-${method}-result.txt 
       done
 
-      cat stat/$host/energy/${case}-${method}-result.txt   | awk '    \
+      cat stats/$host/energy/${case}-${method}-result.txt   | awk '    \
         /Array dim/ {                              \
           size = $NF;                               \
         }                                           \
@@ -39,7 +39,7 @@ do
           energy = $1;                            \
           printf("%s, %s, %s\n", size, energy, time); \
         }                                           \
-      ' > stat/$host/energy/${case}-${method}-stats.csv
+      ' > stats/$host/energy/${case}-${method}-stats.csv
   done
 
   echo "                                            \
@@ -52,10 +52,10 @@ do
     set key left top;                                      \
     set logscale x;                                        \
                                                           \
-    plot \"stat/$host/energy/${case}-GOLDEN-stats.csv\" using 1:2 with linespoint title \"Golden\", \
-        \"stat/$host/energy/${case}-SSE-stats.csv\" using 1:2 with linespoint title \"SSE\",    \
-        \"stat/$host/energy/${case}-AVX-stats.csv\" using 1:2 with linespoint title \"AVX\";    \
-  " | gnuplot > stat/$host/energy/${case}-performance.png
+    plot \"stats/$host/energy/${case}-GOLDEN-stats.csv\" using 1:2 with linespoint title \"Golden\", \
+        \"stats/$host/energy/${case}-SSE-stats.csv\" using 1:2 with linespoint title \"SSE\",    \
+        \"stats/$host/energy/${case}-AVX-stats.csv\" using 1:2 with linespoint title \"AVX\";    \
+  " | gnuplot > stats/$host/energy/${case}-performance.png
 
 
 done

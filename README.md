@@ -22,19 +22,19 @@ make all
 
 1. abs function with SSE and AVX
 
-![Stats](./stat/i7-9750H/time/abs-performance.png)
+![Stats](./stats/i7-9750H/time/abs-performance.png)
 
 ### i7-9750H - Work-station
 
 1. abs function with SSE and AVX
 
-![Stats](./stat/i7-9750H-work-station/time/abs-performance.png)
+![Stats](./stats/i7-9750H-work-station/time/abs-performance.png)
 
 ### Apple Silicon: M1 Pro
 
 1. abs function with NEON
 
-![Stats](./stat/m1pro/time/abs-performance.png)
+![Stats](./stats/m1pro/time/abs-performance.png)
 
 
 ## Energy
@@ -43,4 +43,4 @@ make all
 
 1. abs function with SSE and AVX
 
-![Stats](./stat/i7-9750H-work-station/energy/abs-performance.png)
+![Stats](./stats/i7-9750H-work-station/energy/abs-performance.png)

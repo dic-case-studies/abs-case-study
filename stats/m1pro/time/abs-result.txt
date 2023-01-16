@@ -1,72 +1,72 @@
-Seed: 1669377559
+Seed: 1673860172
 Array dim : 10000
-Elapsed time GOLDEN 3 us
-Elapsed time OpenMP 607 us
+Elapsed time GOLDEN 2 us
+Elapsed time OpenMP 473 us
 Assertion is successful for OpenMP
 Elapsed time SSE 2 us
 Assertion is successful for SSE
-Elapsed time NEON 2 us
+Elapsed time NEON 1 us
 Assertion is successful for NEON
-Seed: 1669377559
+Seed: 1673860172
 Array dim : 50000
-Elapsed time GOLDEN 9 us
-Elapsed time OpenMP 555 us
+Elapsed time GOLDEN 8 us
+Elapsed time OpenMP 460 us
 Assertion is successful for OpenMP
-Elapsed time SSE 9 us
+Elapsed time SSE 8 us
 Assertion is successful for SSE
-Elapsed time NEON 8 us
+Elapsed time NEON 7 us
 Assertion is successful for NEON
-Seed: 1669377559
+Seed: 1673860172
 Array dim : 75001
-Elapsed time GOLDEN 10 us
-Elapsed time OpenMP 429 us
+Elapsed time GOLDEN 11 us
+Elapsed time OpenMP 408 us
 Assertion is successful for OpenMP
 Elapsed time SSE 11 us
 Assertion is successful for SSE
 Elapsed time NEON 11 us
 Assertion is successful for NEON
-Seed: 1669377559
+Seed: 1673860172
 Array dim : 100000
-Elapsed time GOLDEN 14 us
-Elapsed time OpenMP 464 us
+Elapsed time GOLDEN 13 us
+Elapsed time OpenMP 360 us
 Assertion is successful for OpenMP
-Elapsed time SSE 16 us
+Elapsed time SSE 14 us
 Assertion is successful for SSE
-Elapsed time NEON 15 us
+Elapsed time NEON 14 us
 Assertion is successful for NEON
-Seed: 1669377559
+Seed: 1673860172
 Array dim : 500001
 Elapsed time GOLDEN 57 us
-Elapsed time OpenMP 575 us
+Elapsed time OpenMP 525 us
 Assertion is successful for OpenMP
-Elapsed time SSE 86 us
+Elapsed time SSE 71 us
 Assertion is successful for SSE
-Elapsed time NEON 69 us
+Elapsed time NEON 63 us
 Assertion is successful for NEON
-Seed: 1669377559
+Seed: 1673860172
 Array dim : 1000000
-Elapsed time GOLDEN 123 us
-Elapsed time OpenMP 518 us
+Elapsed time GOLDEN 159 us
+Elapsed time OpenMP 545 us
 Assertion is successful for OpenMP
-Elapsed time SSE 129 us
+Elapsed time SSE 131 us
 Assertion is successful for SSE
-Elapsed time NEON 133 us
+Elapsed time NEON 116 us
 Assertion is successful for NEON
-Seed: 1669377560
+Seed: 1673860173
 Array dim : 10000000
-Elapsed time GOLDEN 1290 us
-Elapsed time OpenMP 1109 us
+Elapsed time GOLDEN 2654 us
+Elapsed time OpenMP 1113 us
 Assertion is successful for OpenMP
-Elapsed time SSE 1349 us
+Elapsed time SSE 1677 us
 Assertion is successful for SSE
-Elapsed time NEON 1317 us
+Elapsed time NEON 1643 us
 Assertion is successful for NEON
-Seed: 1669377560
+Seed: 1673860173
 Array dim : 100000000
-Elapsed time GOLDEN 11508 us
-Elapsed time OpenMP 6158 us
+Elapsed time GOLDEN 18906 us
+Elapsed time OpenMP 9025 us
 Assertion is successful for OpenMP
-Elapsed time SSE 14063 us
+Elapsed time SSE 16991 us
 Assertion is successful for SSE
-Elapsed time NEON 18521 us
+Elapsed time NEON 40053 us
 Assertion is successful for NEON
