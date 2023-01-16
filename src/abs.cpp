@@ -67,7 +67,7 @@ void abs_avx(std::vector<int> &arr, std::vector<int> &abs_arr)
 }
 #endif
 
-#ifdef __ARM_NEON__
+#ifdef __ARM_NEON
 void abs_neon(std::vector<int> &arr, std::vector<int> &abs_arr)
 {
   assert(arr.size() < (size_t)INT_MAX);
@@ -185,7 +185,7 @@ int main(int argc, char **argv)
 #endif
 
 // ARM NEON approach
-#ifdef __ARM_NEON__
+#ifdef __ARM_NEON
   std::vector<int> neon_actual(N);
   stop_watch.start_timer();
   abs_neon(arr, neon_actual);
